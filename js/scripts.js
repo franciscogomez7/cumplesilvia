@@ -10,6 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Efecto de partículas en el fondo
-particlesJS.load('inicio', 'particles.json', function() {
+particlesJS.load('inicio', 'js/particles.json', function() {
     console.log('particles.js loaded - callback');
 });
