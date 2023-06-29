@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <title>Portfolio de [Tu Nombre]</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <title>Portfolio</title>
 </head>
 <body>
     <header>
@@ -15,38 +16,52 @@
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre mí</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
     <section id="inicio" class="inicio-section">
-        <div class="inicio-content">
-            <h1 id="typed"></h1>
+  <div class="inicio-content">
+    <h1 id="typed" class="typed-text"></h1>
+  </div>
+  <div id="particles-js"></div>
+</section>
+
+<section class="parallax">
+    <div class="parallax-overlay"></div>
+    <div class="parallax-content" id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>Descubre más sobre mi experiencia y habilidades.</p>
+    </div>
+  </section>
+
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <div class="habilidad">
+            <h3>Habilidad 1</h3>
+            <div class="barra-progreso">
+                <div class="progreso" data-final-width="90%"></div>
+            </div>
+        </div>
+        <div class="habilidad">
+            <h3>Habilidad 2</h3>
+            <div class="barra-progreso">
+                <div class="progreso" data-final-width="75%"></div>
+            </div>
         </div>
     </section>
-    <section class="parallax">
-        <div class="parallax-content" id="sobre-mi">
-            <h2>Sobre mí</h2>
-            <p>Descubre más sobre mi experiencia y habilidades.</p>
-        </div>
-    </section>
-    <section id="proyectos">
-        <h2>Proyectos</h2>
-        <div class="proyecto">
-            <h3>Proyecto 1</h3>
-            <p>Descripción del proyecto 1.</p>
-            <a href="#">Ver más</a>
-        </div>
-        <!-- Repite el div de proyecto para cada proyecto que quieras mostrar -->
-    </section>
+    
+
     <section id="contacto">
         <h2>Contacto</h2>
         <p>Puedes contactarme a través de [tu correo]</p>
     </section>
+
     <footer>
         <p>© [Tu Nombre]. Todos los derechos reservados.</p>
     </footer>
-    <script src="scripts.js"></script>
+
+    <script src="js/scripts.js"></script>
 </body>
 </html>
