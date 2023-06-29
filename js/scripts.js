@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         strings: ["Bienvenido a mi <span class='highlight'>Portfolio</span>", "Soy Fran, <span class='highlight'>[Web Developer]</span> "],
         typeSpeed: 50,
         backSpeed: 25,
-        backDelay: 3500,
+        backDelay: 3000,
         loop: true,
         onStart: function(self) {
             document.querySelector('.typed-text').classList.add('animated');
@@ -22,25 +22,15 @@ particlesJS.load('inicio', 'js/particles.json', function() {
     console.log('particles.js loaded - callback');
 });
 
-// Obtén el botón
-var mybutton = document.getElementById("btnTop");
+// Efecto de partículas en el fondo 2
+particlesJS.load('about', 'js/particles2.json', function() {
+    console.log('particles2.js loaded - callback');
+});
 
-// Cuando el usuario se desplace 200px hacia abajo desde la parte superior del documento, muestra el botón
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 1000) {
-        mybutton.style.display = "block";
-    } else {
-        mybutton.style.display = "none";
-    }
-}
-
-// Cuando el usuario haga clic en el botón, desplaza la página hasta la parte superior del documento
-function topFunction() {
-    document.body.scrollTop = 0; // Para Safari
-    document.documentElement.scrollTop = 0; // Para Chrome, Firefox, IE y Opera
-}
+// Efecto de partículas en el fondo 2
+particlesJS.load('habilidades', 'js/particles2.json', function() {
+    console.log('particles2.js loaded - callback');
+});
 
 // Encuentra todas las barras de progreso en la página
 var barras = document.querySelectorAll('.progreso');
@@ -61,44 +51,11 @@ window.addEventListener('scroll', function() {
     });
 });
 
-document.addEventListener("scroll", () => {
-    let scrollPosition = window.scrollY;
-    
-    document.querySelectorAll("section").forEach((section) => {
-      if (
-        section.offsetTop <= scrollPosition &&
-        section.offsetTop + section.offsetHeight > scrollPosition
-      ) {
-        let navLink = document.querySelector('a[href="#' + section.id + '"]');
-        navLink.classList.add("active");
-      } else {
-        let navLink = document.querySelector('a[href="#' + section.id + '"]');
-        navLink.classList.remove("active");
-      }
-    });
-  });
 
-  window.addEventListener("scroll", function() {
-    var header = document.querySelector("header");
-    header.classList.toggle("shrink", window.scrollY > 50);
+// Obtén todas las barras de progreso
+var barras = document.querySelectorAll('.progreso');
+
+// Añade la clase "animated" y una clase de retraso específica a cada barra de progreso
+barras.forEach(function(barra, index) {
+    barra.classList.add('animated', 'delay-' + (index + 1) + 's');
 });
-
-window.addEventListener("scroll", function() {
-    var header = document.querySelector("header");
-    header.classList.toggle("scroll-shadow", window.scrollY > 0);
-});
-
-window.addEventListener("scroll", function() {
-    var header = document.querySelector("header");
-    var section = document.getElementById("sobre-mi");
-
-    var sectionPosition = section.getBoundingClientRect();
-
-    if (sectionPosition.top <= 0 && sectionPosition.bottom >= 0) {
-        header.style.backgroundColor = "#f4f4f4";
-    } else {
-        header.style.backgroundColor = "#35424a";
-    }
-});
-
-
