@@ -114,13 +114,20 @@ section {
 }
 
 
-
+#particles2-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Esto asegura que las partículas queden detrás del contenido */
+}
 
 .about-section {
     position: relative;
-    overflow: hidden;
-    height: 100vh;
-    background: linear-gradient(rgb(0, 0, 0), rgba(94, 89, 21, 0.8));
+    min-height: 100vh;
+    padding: 50px 0;
+    background: linear-gradient(rgb(0, 0, 0), rgba(14, 58, 38, 0.8));
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -133,147 +140,182 @@ section {
 }
 
 .about-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative; /* Cambia de 'absolute' a 'relative' */
     color: white;
-    text-align: center;
+    text-align: left; /* Cambia de 'center' a 'left' */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 10%; /* Añade padding horizontal para no pegar el contenido a los bordes */
 }
+
+.column {
+    flex: 1;
+    padding: 20px; 
+    max-width: 300px;
+}
+
+
+.about-content h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #3498db;
+    display: inline-block;
+}
+
+/* Estilo para el subtítulo "Descubre más sobre mi experiencia y habilidades." */
+
+.about-content p:first-child {
+    font-size: 25px;
+    margin-bottom: 60px;
+    color: #ccc;
+}
+
+/* Estilo para los subtítulos dentro de la sección */
+
+.about-content h3 {
+    font-size: 20px;
+    margin: 30px 0 20px 0;
+    font-weight: 600;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+}
+
+/* Estilo para los párrafos */
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+/* Estilo para la lista */
+
+.about-content ul {
+    margin-left: 40px;
+    color: #ccc;
+}
+
+/* Estilo para los elementos de la lista */
+
+.about-content li {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Estilo para el link de contacto */
+
+.about-content a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding-bottom: 2px;
+    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+
+#habilidades {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* temporalmente estableciendo un valor alto */
+}
+
 
 .habilidades-section {
     position: relative;
-    overflow: hidden;
-    height: 100vh;
-    background: linear-gradient( rgba(94, 89, 21, 0.8), rgb(53, 52, 13));
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: initial;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 100px 0;
+    padding: 60px 0 20px; 
+    background: rgba(14, 58, 38, 0.8);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+    height: 100vh;
 }
 
-.section-title {
-    font-size: 36px;
-    margin-bottom: 50px;
-}
-
+/* Contenedor de habilidad */
 .habilidad {
-    margin-bottom: 30px;
-}
-
-.barra-progreso {
-    position: relative;
-    height: 20px;
+    margin: 10px 0;
     width: 80%;
-    margin: 0 auto;
-    border: 2px solid rgb(25, 55, 190); /* Borde azul */
-    border-radius: 10px;
-    overflow: hidden;
+    text-align: left;
+    opacity: 1;
+    z-index: 2;
 }
 
+/* Ajuste de tiempos de animación para cada habilidad */
+.habilidad:nth-child(1) { animation-delay: 0.2s; }
+.habilidad:nth-child(2) { animation-delay: 0.4s; }
+.habilidad:nth-child(3) { animation-delay: 0.6s; }
+.habilidad:nth-child(4) { animation-delay: 0.8s; }
+.habilidad:nth-child(5) { animation-delay: 1.0s; }
+.habilidad:nth-child(6) { animation-delay: 1.2s; }
+
+/* Título de la habilidad */
+.habilidad-title {
+    font-size: 20px;
+    margin-bottom: 5px; 
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+
+/* Contenedor de la barra de progreso */
+.barra-progreso {
+    background-color: #44475a;
+    border-radius: 10px; /* Borde de radio más pequeño */
+    overflow: hidden;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    height: 20px; 
+    transition: box-shadow 0.3s ease-in-out;
+    margin-top: 25px;
+}
+
+/* Efecto hover en la barra de progreso */
+.barra-progreso:hover {
+    box-shadow: 0px 0px 30px rgba(80, 250, 123, 0.6); /* Sombra verde en hover */
+}
+
+/* Barra de progreso */
 .progreso {
     height: 100%;
     width: 0;
-    transition: width 1s ease;
-    position: relative;
-    background-color: green; /* Relleno verde */
+    border-radius: 20px;
+    background: linear-gradient(90deg, #50fa7b, #8be9fd);
+    transition: width 2s ease-in-out;
+    z-index: 2;
 }
 
-.porcentaje {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
+/* Estilos específicos para cada habilidad */
+.html { background: linear-gradient(90deg, #f06529, #f9ad81); }
+.css { background: linear-gradient(90deg, #2965f1, #74a2f7); }
+.js { background: linear-gradient(90deg, #f0db4f, #f5e78e); }
+.php { background: linear-gradient(90deg, #8993be, #b3b8d4); }
+.mysql { background: linear-gradient(90deg, #00718b, #5ca7b2); }
+.api { background: linear-gradient(90deg, #50fa7b, #8be9fd); }
+
+/* Animaciones */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.habilidad-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #fff;
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
-.habilidad .progreso::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    opacity: 0.1;
-}
-
-.habilidad .progreso::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    opacity: 0.05;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.habilidad:hover .progreso {
-    width: 100%;
-}
-
-.habilidad:hover .progreso::before {
-    transform: scaleX(1);
-}
-
-.html {
-    background-color: rgb(34, 34, 182);
-}
-
-.css {
-    background-color: rgb(34, 34, 182);
-}
-
-.js {
-    background-color: rgb(25, 126, 46);
-}
-
-.php {
-    background-color: rgb(34, 34, 182);
-}
-
-.mysql {
-    background-color: rgb(34, 34, 182);
-}
-
-.api {
-    background-color: rgb(34, 34, 182);
-}
-
-.animated {
-    animation-duration: 2s;
-}
-
-.delay-1s {
-    animation-delay: 1s;
-}
-
-.delay-2s {
-    animation-delay: 2s;
-}
-
-.delay-3s {
-    animation-delay: 3s;
-}
-
 
 
 footer {
